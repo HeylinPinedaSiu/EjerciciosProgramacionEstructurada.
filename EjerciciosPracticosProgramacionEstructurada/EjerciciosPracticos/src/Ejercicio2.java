@@ -1,104 +1,118 @@
 import java.util.Scanner;
 
-public class Ejercicio2 {
-    public static void main(String[] args) {
+public class Ejercicio2{
+
+    public static void main(String []args){
         Scanner lector = new Scanner(System.in);
 
-        //declaramos las variables 
-        int intento = 3;
-        double lado1;
-        double lados2;
+        //declaramos las variables
+        int intentos = 3;
+        double lados1 ;
+        double lado2;
         double lado3;
 
-        for(int i=0; i < 3; i++){
+        for(int i=0;i<3;i++ ){
 
-       do{
-        //pedimos los datos al usuario
-        System.out.println("Ingrese la longitud del primer lado");
-       lado1 = lector.nextDouble();
-       
-       //
-       if(lado1 <= 0){
-        System.out.println("El valor debe ser mayor de 0. Intente de nuevo ");
-        //los intentos iran decrementando
-        intento--;
+            do {
+                //pedimos los datos al usuario 
+                 System.out.print("Ingrese la longitud del primer lado: ");
+                  lados1 = lector.nextDouble();
 
-       }
-       return; 
+                 if (lados1 <= 0) {
 
-       while(intento > 0){
+                    System.out.println("El valor debe ser mayor a cero. Por favor intente nuevamente.");
+                    intentos--;
 
-        if(intento == 0){
-            System.out.println("Error! Supero el numero maximo de intentos. El programa se cerrara");
-             return;
-
-            }else{
-                intento = 3;
-            }}
-
-            do{
-                System.out.println("Ingrese la longitud del segundo lado: ");
-                lados2 = lector.nextDouble();
-
-                if(lados2 <= 0){
-                    System.out.println("El valor ingresado debe ser mayor a 0. Intente de nuevo");
-                    //la cantidad de intentoss va ir decrementando
-                    intento--;
+                } else {
+                    return;
                 } 
+
+              } while (intentos > 0);
+      
+              if (intentos == 0) {
+
+                System.out.println("Error!! usted superó el número máximo de intentos. **El programa finalizará**.");
                 return;
 
-            while (intento > 0){ 
+              } else {
+                intentos = 3;
 
-              if(intento == 0 ){
-                System.out.println("Error! Supero el numero maximo de intentos el programa se cerrara");
-               return;
+                }
 
-            }else{
-                intento =3;
-            } }}
-           
-            
-            do{
-                System.out.println("Ingrese la longitud del tercer lado: ");
+            do {
+                //pedimos los datos al usuario 
+                System.out.print("Ingrese la longitud del segundo lado: ");
+                lado2 = lector.nextDouble();
+
+                 if (lado2 <= 0) {
+                    System.out.println("El valor debe ser mayor a cero. Por favor ntente nuevamente.");
+                    intentos--;
+
+                } else {
+                    return;
+                } 
+
+              } while (intentos > 0);
+      
+              if (intentos == 0) {
+                System.out.println("Error! usted superó el número máximo de intentos. **El programa finalizará**.");
+                return;
+
+              } else {
+
+                intentos = 3;
+
+                }
+
+                /////////
+                  do {
+
+                    /*pedimos los datos al usuario */
+                System.out.print("Ingrese la longitud del tercer lado: ");
                 lado3 = lector.nextDouble();
 
-                if(lado3 <= 0){
-                    System.out.println("El valor ingresado debe ser mayor de 0. Intetnte de nuevo");
-                    //los intentos iran disminuyendo
-                    intento--;
-                }  
-                return;
-         
-         while(intento > 0);
+                 if (lado3 <= 0) {
 
-         if(intento == 0){
-            System.out.println("Error! supero el numero maximo de intentos. El programa se cerrara");
-            return;
-         } else{
-            intento = 3;
-         }
-        }
-         if(lado1 == lados2 || lados2 == lado3 || lado1 == lado3){
-                 //
-            if(lado1 == lados2 && lados2 == lado3){
-                System.out.println("El Triangulo es Equilatero");
-                return;
-            }
-            //
-            if(lado1 == lados2 || lados2 == lado3 || lado1 == lado3){
-                System.out.println("El Triangulo es Isosceles");
+                    System.out.println("El valor debe ser mayor a cero. Por favor intente nuevamente.");
+                    intentos--;
+
+                } else {
+                    return;
+                } 
+              } while (intentos > 0);
+      
+              if (intentos == 0) {
+                System.out.println("Error! usted  superó el número máximo de intentos. **El programa finalizará**.");
                 return;
 
-                //
-            } else{
-                System.out.println("El Triangulo es Escaleno");
-                return;
+              } else {
+                intentos = 3;
+                }
+                 
+                //hacemos las repectivas operaciones 
+                if (lados1 + lado2 > lado3 && lado2 + lado3 > lados1 && lados1 + lado3 > lado2) {
+                     
+                    /*OPeracion para sacar el triangulo equilatero */
+                    if (lados1 == lado2 && lado2 == lado3) {
+                        System.out.println("Triángulo Equilátero");
+
+                        break;
+                    } 
+                     /*OPeracion para sacar el triangulo isosceles */
+                    if (lados1 == lado2 || lado2 == lado3 || lados1 == lado3) {
+                        System.out.println("Triángulo   Isosceles");
+
+                        break;
+
+                    } else {
+                            //SI NO CUMPLE NINGUNA DE LAS CONDICIONES ANTERIORES ENTONCES ES :
+                        System.out.println("Triángulo escaleno");
+                        break;
+                    }
+                } else {
+                    System.out.println("********No se puede formar un triángulo con los lados proporcionados.*******");
+                }
             }
-         } else{
-            System.out.println("No se puede formar un triangulo con todos sus lados proporcionales");
-         }
-         } 
-       
-        }
-        lector.close();
-    }}
+           lector.close();
+    }
+}
